@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/compario.css') }}">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <script src="static/results-view.js"></script>
+
+</head>
+
+<body>
+
+  <div>
+
+    <div class="container-fluid mb-5 product-sans-mdlg">
+      {% block content %}
+        {% include 'navbar.html' %}
+      {% endblock %}
+    </div>
+
+    <div class="container">
+
+    {% for item in items %}
+      <div class="row align-items-center pt-3 product-row">
+
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+          <img src="static/images/amazon-logo.png" class="e-com-logo">
+        </div>
+        <div class="col-sm-4">
+          <img src="static/images/flipkart-logo.png" class="e-com-logo">
+        </div>
+
+      </div>
+
+      <div class="row align-items-center pb-3 pt-3 product-sans-md">
+
+        <div class="col-sm-4 text-center">
+          {{ item.name }}
+        </div>
+        <div class="col-sm-4 text-center">
+          {{ item.amazonPrice }}
+        </div>
+        <div class="col-sm-4 text-center">
+          {{ item.flipkartPrice }}
+        </div>
+
+      </div>
+    {% endfor %}
+
+  </div>
+
+</body>
+</html>

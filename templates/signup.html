@@ -1,0 +1,69 @@
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/compario.css') }}">
+
+  </head>
+
+  <body>
+
+    <div class="container-fluid product-sans-mdlg">
+      {% block content %}
+        {% include 'navbar.html' %}
+      {% endblock %}
+    </div>
+
+    <div class="row justify-content-center align-items-center product-sans-md h-100">
+      <img src="static/images/signup-bg.png" class="signup-bg-image">
+      <form action="/processSignUp" method="post">
+
+        <div class="row mb-5">
+          <div class="col align-self-center product-sans-mdlg">
+            Username
+          </div>
+          <div class="col">
+            <input type="text" class="login-text-box" name="username">
+          </div>
+        </div>
+
+        <div class="row mb-5">
+          <div class="col align-self-center product-sans-mdlg">
+            Email
+          </div>
+          <div class="col">
+            <input type="text" class="login-text-box" name="email">
+          </div>
+        </div>
+
+        <div class="row mb-5">
+          <div class="col align-self-center product-sans-mdlg">
+            Password
+          </div>
+          <div class="col">
+            <input type="password" class="login-text-box" name="password">
+          </div>
+        </div>
+
+        <div class="row mb-5">
+          <div class="col align-self-center product-sans-mdlg">
+            Confirm Password
+          </div>
+          <div class="col">
+            <input type="password" class="login-text-box" name="passwordConfirm">
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <input type="submit" class="search-button">
+        </div>
+
+      </form>
+
+    </div>
+  </body>
+
+</html>
