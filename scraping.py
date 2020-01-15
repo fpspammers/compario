@@ -4,7 +4,7 @@ import sys
 import warnings
 from requests_html import HTMLSession
 
-url = "https://www.amazon.in/s?k=Phones"
+url = "https://www.amazon.in/s?k=Balls"
 session = HTMLSession()
 
 if not sys.warnoptions:
@@ -17,4 +17,12 @@ requestHeaders = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537
 responseText = session.get(url, headers=requestHeaders, verify=False)
 
 soup = BeautifulSoup(responseText.text, 'lxml')
-print(soup.find("span",attrs={"data-component-type":"s-product-image"}))
+
+resultListTag = soup.find('span',attrs={"data-component-type":"s-search-results"})
+resultList = resultListTag.contents
+
+#for item in resultListTag.children:
+    #imageTag = item.find('img',attrs={"data-image-latency":"s-product-image"})
+    #imageLink = imageTag["src"]
+
+print(resultList[0])
